@@ -1,20 +1,13 @@
-/*
-EJERCICIO 35:
-Hacer un programa que tome los datos de contacto de una persona 
-(Nombre, Apellido, edad, teléfono, mail) y los cargue, en forma directa, 
-en una pila de memoria dinámica. Imprimir en pantalla y cargar en un archivo
-llamado "contactos.dat", de organización secuencial, los registros 
-ingresados por el usuario si la persona tiene una edad mayor a 21 años.
-*/
 
 
-#include "libs.h"
+
+#include "../libs/libs.h"
 
 
 int main(void) {
     int i=0;
     char edad;
-    char nombre[20], apellido[20], mail[40], tel[20], preg[2];
+    char nombre[TAM1], apellido[TAM1], mail[TAM2], tel[TAM1], preg[2];
     pila_t *p, *aux;
     pila_t * tope;
     int count = 0;
@@ -77,7 +70,7 @@ int main(void) {
     fp = fopen ("contactos.dat", "wb+"); 
     if (fp == NULL) 
     { 
-        fprintf(stderr, "\nError opend file\n"); 
+        fprintf(stderr, "\nError en apertura de archivo\n"); 
         exit (1);
     } 
     printf("\n\n -->Comienza la Impresion y el guardado de Datos <--\n");

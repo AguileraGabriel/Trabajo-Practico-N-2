@@ -4,8 +4,9 @@
 #include <stdio.h>
 #include <string.h>
 
-#define TRUE 1
-#define FALSE 0
+
+#define TAM1 20
+#define TAM2 40
 
 typedef struct misDatos_t {
     char pNombre[20];
