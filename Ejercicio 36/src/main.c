@@ -6,38 +6,37 @@ int main(void){
     misDatos_t datosleidos;
 	FILE *fp;
 
+	//Leo los datos de mi archivo importado contactos.dat 
 	fp = fopen (CONTACTOS,"rb+");
 	if (!fp){
 		printf("Error en la apertura del archivo %s \n",CONTACTOS);
 		return 1;
 	}
-
 	while(fread(&persona,sizeof(struct pila_t),1,fp)){
 		aux=(lista_t*) malloc(sizeof(lista_t));
 		aux->dato=persona.dato;
 		
-		//Leo los datos de mi archivo importado contactos.dat   
+  
 		aux->prox=NULL;
 
 		if(in == NULL){
 			in = aux;
 		}
 		else{
-			if(0 > strcmp(aux->dato.pApellido, in->dato.pApellido)){ //si cargo al inicio de la lista  --- atoi(aux->dato.pTel) < atoi(in->dato.pTel)
+			if(0 > strcmp(aux->dato.pApellido, in->dato.pApellido)){ //si cargo al inicio de la lista 
 				aux->prox=in;
 				in = aux;
 			}
 			else
 			{
-				r = in; //puntero de recorrido.
-				ant = in; //puntero de anterior al de recorrido
+				r = in; //puntero de recorrido igual al de inicio
+				ant = in; //puntero de anterior igual al de inicio
 				
-				while (0 <= strcmp(aux->dato.pApellido, r->dato.pApellido) && r->prox != NULL){ //mientras el dato ingresado sea mayor al objeto evaluedo y mientras sea distinto a fin de lista. ---atoi(aux->dato.pTel) >= atoi(r->dato.pTel) && r->prox != NULL
-					//en esta parte recorro...
-					ant = r; //ant conserva pos de r
+				while (0 <= strcmp(aux->dato.pApellido, r->dato.pApellido) && r->prox != NULL){ //mientras el dato ingresado sea mayor al objeto evaluedo y mientras sea distinto a fin de lista.
+					ant = r; //ant ahora es r
 					r = r->prox; //r adopta el valor del siguiente
 				}
-				if(0 <= strcmp(aux->dato.pApellido, r->dato.pApellido)){ //si el dato esta en el medio de la lista --- atoi(aux->dato.pTel) >= atoi(r->dato.pTel)
+				if(0 <= strcmp(aux->dato.pApellido, r->dato.pApellido)){ //si el dato esta en el medio de la lista 
 					r->prox = aux;
 				}
 				else{  //Si cargo al final de la lista
@@ -50,7 +49,7 @@ int main(void){
 	fclose(fp);
 
     /*
-	//Impresion de la Lista Ordenada
+	//IMPRESION DE LA LISTA ORDENADA
 	r = in;
     printf("\n\n\t---> Lista completa ya ordenada por apellido <---\n\n");
     while(r != NULL){
