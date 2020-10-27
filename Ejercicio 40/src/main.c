@@ -11,7 +11,7 @@ int main(void){
 
     do{ 
     //Llamado de funciones
-    printf ("Ingrese ID a buscar entre 0 y 5:");
+    printf ("Ingrese ID a buscar:");
     scanf("%ld",&id);
     dato = lecturaDelArchivo(id);
     strcpy(dato.leidos.desc, inversionDePalabra(dato)); //guardo la palabra invertida
