@@ -2,7 +2,7 @@
 Existe un archivo llamado "datos.dat", de tipo binario, cuya organización es secuencial. Los datos están organizados según la siguiente estructura:
 
     ```c
-    struct d {
+    struct d{
         long clave; //clave o Id del registo
         char d[30]; // Descripcion  
         unsigned char tipo; //Tipo de datos como entero sin signo
